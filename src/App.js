@@ -1,24 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from "./component/Header";
+import Todos from "./component/Todos";
+import Footer from "./component/Footer";
+import React, { useState } from 'react';
 
 function App() {
+  const onDelete = (todo)=>
+  {
+    setTodos(todos.filter((e)=>{
+
+      return e !== todo;
+    }))
+  }
+
+  const [todos, setTodos] = useState([
+   {
+     id:1,
+     title:"My first todo title",
+     description:"First todo descripion"
+   },
+   {
+     id:2,
+     title:"ddsdsf fsdfsfsf",
+     description:"dsadadsad asdsa dfsdfd fsdf sdf dsf sfssgsggs"
+   },
+   {
+     id:3,
+     title:"ddsdsf fsdfsfsf",
+     description:"dsadadsad asdsa dfsdfd fsdf sdf dsf sfssgsggs"
+   },
+ ]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Header title="Todo list"/>
+    <Todos todos={todos} onDelete={ onDelete } />
+    <Footer/>
+    </>
   );
 }
 
