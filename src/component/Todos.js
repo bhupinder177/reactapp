@@ -7,6 +7,8 @@ export default function Todos(props){
            return(
              <div className="container">
              <h3 className="text-center">Todos List</h3>
+             <div className="container">
+              <div className="row">
              {
                props.todos.map((todo)=>
                {
@@ -14,6 +16,8 @@ export default function Todos(props){
                }
               )
             }
+             </div>
+             </div>
              </div>
            )
 }
